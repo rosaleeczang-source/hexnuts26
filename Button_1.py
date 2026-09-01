@@ -1,0 +1,131 @@
+#######import statements######
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
+#defines the variables
+
+
+#defining motor ports
+hub = PrimeHub()
+#print(hub.system.info['name'])
+left_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.B)
+right_top = Motor(Port.D)
+left_top = Motor(Port.A)
+dB = DriveBase(left_motor,right_motor, wheel_diameter=54, axle_track=80)
+dB.use_gyro(False)
+hub.imu.reset_heading(0)
+dB.settings(200,550,50,150)
+#      maxspeed, stspeed, accel, turn rate  
+
+
+
+###################Mission Critical Code###################
+
+
+####################End Mission Critical Code###################
+
+###Button Functions###
+def pause(message=''):
+    # Wait for any button to be pressed, and save the result.
+    hub.system.set_stop_button(None)
+    hub.system.set_stop_button(Button.BLUETOOTH)
+    hub.speaker.beep()
+    print(message)
+    pressed = []
+    while not any(pressed):
+        pressed = hub.buttons.pressed()
+        wait(10)
+
+    hub.system.set_stop_button(Button.CENTER)
+    hub.speaker.beep()
+    wait(500)
+
+def select_number(active, options):
+    """
+    Interactive number selector using the Spike Prime hub buttons.
+    - Left / Right buttons scroll through 'options'.
+    - Center button confirms selection.
+    - Selected number is shown on the hub display.
+    - Returns the newly selected number.
+    """
+
+    # Disable the default stop behavior for the center button
+    #hub.system.set_stop_button(None)
+    hub.system.set_stop_button(Button.BLUETOOTH)
+    
+    index = options.index(active) if active in options else 0
+    total = len(options)
+
+    def show():
+        hub.display.number(options[index])
+
+    show()
+    hub.speaker.beep()
+
+    while True:
+        pressed = hub.buttons.pressed()
+
+        if Button.LEFT in pressed:
+            index = (index - 1) % total
+            show()
+            hub.speaker.beep()
+            wait(300)  # debounce
+
+        elif Button.RIGHT in pressed:
+            index = (index + 1) % total
+            show()
+            hub.speaker.beep()
+            wait(300)  # debounce
+
+        elif Button.CENTER in pressed:
+            # confirm selection
+            hub.speaker.beep()
+            wait(300)
+            hub.display.number(options[index])
+            # Re-enable stop button before returning
+            hub.system.set_stop_button(Button.CENTER)
+            return options[index]
+
+        wait(50)
+
+
+hub.speaker.beep()
+active = 1
+options = [ 1, 2, 3, 4, 5, 6 ]
+
+while True:
+  wait(100)
+  hub.imu.reset_heading(0)
+  active = select_number(active, options)
+  print (active)
+
+  if active == 1:
+      print ('calibrate')
+      calibrate_arm_left()
+      calibrate_arm_right()
+  
+  elif active == 2:
+      m3()
+      #m13()  
+      dB.stop()
+
+  elif active == 3:
+      m_one()  
+      dB.stop()
+      
+  elif active == 4:
+      m11()
+      dB.stop()
+  
+  elif active == 5:
+      run2()
+      dB.stop()
+  
+  elif active == 6:
+      sixfive()
+      dB.stop()
+  
+  #active = max(active + 1 , max(options))
