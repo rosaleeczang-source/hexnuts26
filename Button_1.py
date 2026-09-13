@@ -128,8 +128,9 @@ while True:
       sixfive()
       dB.stop()
   
-  #active = max(active + 1 , max(options)) 
+  #active = max(active + 1 , max(options))
 
-
-  #Rosa's test push
   
+  #test if Nadya can commit to github
+  #banana.  Eli
+  #Rosa's test push
