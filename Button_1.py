@@ -7,25 +7,20 @@ from pybricks.tools import wait, StopWatch
 #defines the variables
 
 
-#defining motor ports
 hub = PrimeHub()
-#print(hub.system.info['name'])
+#print(hub.system.info['name']), this was used to find which robot was which
+#defines the ports
 left_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.B)
 right_top = Motor(Port.D)
 left_top = Motor(Port.A)
+#Defining the drive base and telling it to not use the gyro
 dB = DriveBase(left_motor,right_motor, wheel_diameter=54, axle_track=80)
 dB.use_gyro(False)
+#resets the heading
 hub.imu.reset_heading(0)
-dB.settings(200,550,50,150)
-#      maxspeed, stspeed, accel, turn rate  
+dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
 
-
-
-###################Mission Critical Code###################
-
-
-####################End Mission Critical Code###################
 
 ###Button Functions###
 def pause(message=''):
@@ -61,6 +56,7 @@ def select_number(active, options):
 
     def show():
         hub.display.number(options[index])
+        #displays the number of the code that it is running 
 
     show()
     hub.speaker.beep()
@@ -68,19 +64,19 @@ def select_number(active, options):
     while True:
         pressed = hub.buttons.pressed()
 
-        if Button.LEFT in pressed:
+        if Button.LEFT in pressed:# makes the left button make the number the code is running lower
             index = (index - 1) % total
             show()
             hub.speaker.beep()
             wait(300)  # debounce
 
-        elif Button.RIGHT in pressed:
+        elif Button.RIGHT in pressed: #makes the right button increase the number the code is running
             index = (index + 1) % total
             show()
             hub.speaker.beep()
             wait(300)  # debounce
 
-        elif Button.CENTER in pressed:
+        elif Button.CENTER in pressed: #runs the code number, each code number is a different code function
             # confirm selection
             hub.speaker.beep()
             wait(300)
@@ -94,14 +90,14 @@ def select_number(active, options):
 
 hub.speaker.beep()
 active = 1
-options = [ 1, 2, 3, 4, 5, 6 ]
+options = [ 1, 2, 3, 4, 5, 6 ] # different code functions
 
 while True:
   wait(100)
   hub.imu.reset_heading(0)
   active = select_number(active, options)
   print (active)
-
+#runs the functions based on the number ran from 
   if active == 1:
       print ('calibrate')
       calibrate_arm_left()
@@ -127,5 +123,3 @@ while True:
   elif active == 6:
       sixfive()
       dB.stop()
-  
-  #active = max(active + 1 , max(options))
