@@ -21,10 +21,11 @@ dB.use_gyro(False)
 hub.imu.reset_heading(0)
 dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
 
-def calibrate_arm_left():
-    left_top.run_until_stalled(-700,then=Stop.COAST,duty_limit=35)
+def calibrate_arm_back():
+    back_arm.run_until_stalled(-700,then=Stop.COAST,duty_limit=35)
     # turn arm back up N degrees
-    left_top.run_angle(700,360)
+    #back_arm.run_angle(700,360)
+    
     return
 
 
