@@ -41,7 +41,11 @@ def calibrate_arm_front():
 #mission 1, caleb here
 
 #mission 2, alex here 
-
+dB.turn(-160)
+dB.straight(508)
+dB.turn(120)
+dB.straight(200)
+front_arm.run_angle(300, 60)
 #run2
 #mission15 Eli here
 
