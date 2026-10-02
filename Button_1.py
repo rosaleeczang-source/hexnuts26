@@ -21,6 +21,14 @@ dB.use_gyro(False)
 hub.imu.reset_heading(0)
 dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
 
+#Defining the missions
+
+#Mission 3, rosa here
+
+#mission 1, caleb here
+
+#mission 2, alex here 
+
 
 ###Button Functions###
 def pause(message=''):
@@ -104,7 +112,7 @@ while True:
       calibrate_arm_right()
   
   elif active == 2:
-      m3()
+      m2()
       #m13()  
       dB.stop()
 
