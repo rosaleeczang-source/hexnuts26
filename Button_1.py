@@ -12,8 +12,8 @@ hub = PrimeHub()
 #defines the ports
 left_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.B)
-right_top = Motor(Port.D)
-left_top = Motor(Port.A)
+back_arm = Motor(Port.A)
+front_arm = Motor(Port.D)
 #Defining the drive base and telling it to not use the gyro
 dB = DriveBase(left_motor,right_motor, wheel_diameter=54, axle_track=80)
 dB.use_gyro(False)
