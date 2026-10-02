@@ -25,12 +25,12 @@ def calibrate_arm_back():
     back_arm.run_until_stalled(-700,then=Stop.COAST,duty_limit=35)
     # turn arm back up N degrees
     #back_arm.run_angle(700,360)
-    
+
     return
 
 
-def calibrate_arm_right():
-    right_top.run_until_stalled(700,then=Stop.COAST,duty_limit=35)
+def calibrate_arm_front():
+    front_arm.run_until_stalled(700,then=Stop.COAST,duty_limit=35)
     return
 
 
@@ -46,6 +46,12 @@ def calibrate_arm_right():
 #mission15 Eli here
 
 #mission6 Markos here
+calibrate_arm_front()
+dB.turn(110)
+dB.straight(152.4)
+front_arm.run_angle(-700,360)#lower arm
+
+
 
 #mission 11 Addilynn here
 
