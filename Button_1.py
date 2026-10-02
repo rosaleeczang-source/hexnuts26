@@ -21,13 +21,38 @@ dB.use_gyro(False)
 hub.imu.reset_heading(0)
 dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
 
-#Defining the missions
+def calibrate_arm_left():
+    left_top.run_until_stalled(-700,then=Stop.COAST,duty_limit=35)
+    # turn arm back up N degrees
+    left_top.run_angle(700,360)
+    return
 
+
+def calibrate_arm_right():
+    right_top.run_until_stalled(700,then=Stop.COAST,duty_limit=35)
+    return
+
+
+#Defining the missions
+#run1
 #Mission 3, rosa here
 
 #mission 1, caleb here
 
 #mission 2, alex here 
+
+#run2
+#mission15 Eli here
+
+#mission6 Markos here
+
+#mission 11 Addilynn here
+
+#run3
+#mission7 Calvin
+
+#mission 13 Harvey
+
 
 
 ###Button Functions###
