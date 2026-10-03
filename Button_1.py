@@ -39,7 +39,13 @@ def calibrate_arm_front():
 def run1():
 
 #Mission 3, rosa here
-
+#using hexnut
+#Red base, grey arm bracket lines up with sixth square, back lines up with corner block
+front_arm.run_angle(600,260)
+#raise arm
+dB.straight(355.6)
+front_arm.run_angle(-600,260)
+dB.straight(-25)
 #mission 1, caleb here
 
 #mission 2, alex here 
