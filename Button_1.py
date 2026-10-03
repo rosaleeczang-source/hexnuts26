@@ -58,7 +58,13 @@ return
 def run2():
 #run2
 #mission15 Eli here
+front_arm.run_angle(-80,180)#lower arm
 
+dB.turn(35)#turn
+
+dB.straight(500)
+
+front_arm.run_angle(-80,-180)#reseting arm
 #mission6 Markos here
 calibrate_arm_front()
 dB.turn(110)
