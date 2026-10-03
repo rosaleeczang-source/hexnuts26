@@ -36,6 +36,8 @@ def calibrate_arm_front():
 
 #Defining the missions
 #run1
+def run1():
+
 #Mission 3, rosa here
 
 #mission 1, caleb here
@@ -46,6 +48,8 @@ dB.straight(508)
 dB.turn(120)
 dB.straight(200)
 front_arm.run_angle(300, 60)
+return
+def run2():
 #run2
 #mission15 Eli here
 
@@ -55,15 +59,21 @@ dB.turn(110)
 dB.straight(152.4)
 front_arm.run_angle(-700,360)#lower arm
 
-
-
 #mission 11 Addilynn here
+#starts on rightside of Ant
+dB.straight(-25)
+dB.turn(85)
+dB.straight(45)
+dB.turn(-30)
+return
 
 #run3
+def run3():
 #mission7 Calvin
 
 #mission 13 Harvey
 
+return
 
 
 ###Button Functions###
