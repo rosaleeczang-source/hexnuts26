@@ -41,43 +41,43 @@ def run1():
 #Mission 3, rosa here
 #using hexnut
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
-front_arm.run_angle(600,260)
+    front_arm.run_angle(600,260)
 #raise arm
-dB.straight(355.6)
-front_arm.run_angle(-600,260)
-dB.straight(-25)
-#mission 1, caleb here
+    dB.straight(355.6)
+    front_arm.run_angle(-600,260)
+    dB.straight(-25)
+    #mission 1, caleb here
 
-#mission 2, alex here 
-dB.turn(-160)
-dB.straight(508)
-dB.turn(120)
-dB.straight(200)
-front_arm.run_angle(300, 60)
-return
+    #mission 2, alex here 
+    dB.turn(-160)
+    dB.straight(508)
+    dB.turn(120)
+    dB.straight(200)
+    front_arm.run_angle(300, 60)
+    return
 def run2():
-#run2
-#mission15 Eli here
-front_arm.run_angle(-80,180)#lower arm
+    #run2
+    #mission15 Eli here
+    front_arm.run_angle(-80,180)#lower arm
 
-dB.turn(35)#turn
+    dB.turn(35)#turn
 
-dB.straight(500)
+    dB.straight(500)
 
-front_arm.run_angle(-80,-180)#reseting arm
-#mission6 Markos here
-calibrate_arm_front()
-dB.turn(110)
-dB.straight(152.4)
-front_arm.run_angle(-700,360)#lower arm
+    front_arm.run_angle(-80,-180)#reseting arm
+    #mission6 Markos here
+    calibrate_arm_front()
+    dB.turn(110)
+    dB.straight(152.4)
+    front_arm.run_angle(-700,360)#lower arm
 
-#mission 11 Addilynn here
-#starts on rightside of Ant
-dB.straight(-25)
-dB.turn(85)
-dB.straight(45)
-dB.turn(-30)
-return
+    #mission 11 Addilynn here
+    #starts on rightside of Ant
+    dB.straight(-25)
+    dB.turn(85)
+    dB.straight(45)
+    dB.turn(-30)
+    return
 
 #run3
 def run3():
@@ -85,7 +85,7 @@ def run3():
 
 #mission 13 Harvey
 
-return
+    return
 
 
 ###Button Functions###
