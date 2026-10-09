@@ -48,23 +48,23 @@ def run1():
 #Mission 3, rosa here
 #using hexnut
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
-front_arm.run_angle(600,260)
-#raise arm
-dB.straight(355.6)
-#hitting
-front_arm.run_angle(-570,210)
-dB.straight(-50)
-front_arm.run_angle(-60,50)
-dB.straight(-70)
-#first flip
-front_arm.run_angle(600,260)
-dB.straight(80.6)
-front_arm.run_angle(-570,210)
-dB.straight(-60)
-front_arm.run_angle(-200,40)
-dB.straight(-90)
-    #mission 1, caleb here
-
+    front_arm.run_angle(600,260)
+    #raise arm
+    dB.straight(355.6)
+    #hitting
+    front_arm.run_angle(-570,210)
+    dB.straight(-50)
+    front_arm.run_angle(-60,50)
+    dB.straight(-70)
+    #first flip
+    front_arm.run_angle(600,260)
+    dB.straight(80.6)
+    front_arm.run_angle(-570,210)
+    dB.straight(-60)
+    front_arm.run_angle(-200,40)
+    dB.straight(-90)
+        #mission 1, caleb here
+    dB.straight(533)
     #mission 2, alex here 
     dB.turn(-160)
     dB.straight(508)
