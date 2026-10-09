@@ -120,7 +120,14 @@ def run3():
 #mission7 Calvin
 
 #mission 13 Harvey
+#Right side of the bumper lined up with the second big black line farthest away from the edge of board.
 
+dB.straight(-609)
+dB.turn(45)
+dB.straight(-146)
+back_arm.run_angle(rotation_angle=130)
+dB.straight(254)
+dB.turn(-45)
     return
 
 
