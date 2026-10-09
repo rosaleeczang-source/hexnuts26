@@ -75,11 +75,30 @@ def run1():
 def run2():
     #run2
     #mission15 Eli here
-    front_arm.run_angle(-80,180)#lower arm
+    front_arm.run_angle(-80,155)#lower arm
 
     dB.turn(35)#turn
 
-    dB.straight(500)
+    dB.straight(700)
+
+    dB.turn(55)#turn
+
+    dB.straight(220)
+
+    dB.straight(-40)
+
+    front_arm.run_angle(-80,-155)#reseting arm
+
+    dB.straight(105)
+
+    dB.turn(90)#turn
+
+    dB.straight(180) 
+
+    dB.turn(-105)#turn
+
+front_arm.run_angle(-80,-165)#reseting arm
+
 
     front_arm.run_angle(-80,-180)#reseting arm
     #mission6 Markos here
