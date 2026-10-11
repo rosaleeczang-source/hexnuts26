@@ -47,31 +47,31 @@ def run1():
 
 #Mission 3, rosa here
 #using hexnut
-#Red base, grey arm bracket lines up with sixth square, back lines up with corner block
-    front_arm.run_angle(600,260)
-    #raise arm
-    dB.straight(355.6)
+#Red base,three blocks away from edge of the red home
+def mission_3():
+    calibrate_arm_front_down()
+
+    front_arm.run_angle(600,307)
+    dB.settings(straight_speed=200)
+    #raise arm 345
+    dB.straight(130)
     #hitting
-    front_arm.run_angle(-570,210)
-    dB.straight(-50)
-    front_arm.run_angle(-60,50)
-    dB.straight(-70)
+    front_arm.run_angle(-570,180) #210
+    dB.straight(-30)
+    front_arm.run_angle(-200,70)
+    dB.straight(-90)
     #first flip
     front_arm.run_angle(600,260)
-    dB.straight(80.6)
-    front_arm.run_angle(-570,210)
-    dB.straight(-60)
-    front_arm.run_angle(-200,40)
+    dB.straight(150)
+    front_arm.run_angle(-590,210)
     dB.straight(-90)
-        #mission 1, caleb here
-    dB.straight(533)
-    #mission 2, alex here 
-    dB.turn(-160)
-    dB.straight(508)
-    dB.turn(120)
-    dB.straight(200)
-    front_arm.run_angle(300, 60)
+    front_arm.run_angle(-200,40)
+    dB.straight(-190)
     return
+
+
+   
+mission_3()
 def run2():
     #run2
     #mission15 Eli here
