@@ -56,8 +56,20 @@ def mission_6():
     dB.settings(50,550,50,150) #maxspeed, stspeed, accel, turn rate 
     dB.turn(17)
     dB.straight(187.2)
+    dB.turn(8)
     return
-
+#addilynns good code
+def mission_11():
+    dB.use_gyro(True)
+    dB.straight(-100)
+    dB.turn(90)
+    dB.straight(8.5*25.4)
+    dB.turn(-45)
+    dB.straight(5*25.4)   
+    dB.turn(60)
+    dB.straight(22*25.4)
+    dB.use_gyro(False)
+return
 #Mission 3, rosa here
 #using hexnut
 #Red base,three blocks away from edge of the red home
