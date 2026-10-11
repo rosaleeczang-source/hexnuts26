@@ -45,6 +45,19 @@ def calibrate_arm_front_up():
 #run1
 def run1():
 
+
+def mission_6():
+    #Mission 6, Markos here
+    #calibrate_arm_front()
+    dB.straight(40)
+    dB.straight(-10)
+    dB.turn(110)
+    dB.straight(152.4)
+    dB.settings(50,550,50,150) #maxspeed, stspeed, accel, turn rate 
+    dB.turn(17)
+    dB.straight(187.2)
+    return
+
 #Mission 3, rosa here
 #using hexnut
 #Red base,three blocks away from edge of the red home
