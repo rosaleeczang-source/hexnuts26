@@ -45,6 +45,15 @@ def calibrate_arm_front_up():
 #run1
 def run1():
 
+def mission_2():
+    # Mission 2, Alex here
+    # red home, starts 6 blocks from the bottom, 8 blocks from the corner on the x axis
+    dB.turn(45)
+    calibrate_arm_front_down() # 172
+    front_arm.run_angle(60, 80)   #-60
+    dB.straight(380)
+    front_arm.run_angle(speed=200,rotation_angle=112,wait=False)
+    dB.straight(-101.6)
 
 def mission_6():
     #Mission 6, Markos here
