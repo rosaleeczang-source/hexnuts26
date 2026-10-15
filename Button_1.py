@@ -156,7 +156,7 @@ def run3():
 #mission7 Calvin
 
 #mission 13 Harvey
-#Left side of the bumper lined up with the second big black line farthest away from the edge of board.
+#Left side of the bumper lined up with the second to last big black line farthest away from the edge of board.
 
 dB.straight(-609)
 dB.turn(45)
