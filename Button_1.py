@@ -84,7 +84,7 @@ return
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
 def mission_3():
     calibrate_arm_front_down()
-
+#using long wings on the front arm to hit my mission :)
     front_arm.run_angle(600,307)
     dB.settings(straight_speed=200)
     #raise arm 345
