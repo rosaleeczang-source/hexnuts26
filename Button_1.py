@@ -81,7 +81,7 @@ def mission_11():
 return
 #Mission 3, rosa here
 #using hexnut
-#Red base,three blocks away from edge of the red home
+#Red base, grey arm bracket lines up with sixth square, back lines up with corner block
 def mission_3():
     calibrate_arm_front_down()
 
@@ -96,16 +96,18 @@ def mission_3():
     dB.straight(-90)
     #first flip
     front_arm.run_angle(600,260)
-    dB.straight(150)
+    dB.straight(140)
     front_arm.run_angle(-590,210)
     dB.straight(-90)
     front_arm.run_angle(-200,40)
-    dB.straight(-190)
+    dB.straight(-300)
+    front_arm.run_angle(600,260)
     return
 
 
    
 mission_3()
+
 def run2():
     #run2
     #mission15 Eli here
