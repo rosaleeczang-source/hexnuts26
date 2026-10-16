@@ -50,15 +50,16 @@ def mission_2():
     # red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
     dB.use_gyro(True)
     dB.turn(46)
-    calibrate_arm_front_down() # 172
-    front_arm.run_angle(60, 80)   #-60
+    calibrate_arm_front_down()
+    front_arm.run_angle(60, 80)   
     dB.straight(380)
     front_arm.run_angle(60, 44)
     dB.straight(-35)
     front_arm.run_angle(60, 44)
     dB.straight(25)
-    front_arm.run_angle(60, 44, wait=False)
-    dB.straight(-101.6)
+    front_arm.run_angle(60, 74, wait=False)
+    dB.straight(-355)
+    dB.turn(-46)
     dB.use_gyro(False)
     return
 
@@ -118,30 +119,21 @@ mission_3()
 def run2():
     #run2
     #mission15 Eli here
-    front_arm.run_angle(-80,155)#lower arm
-
+    calibrate_arm_front_down()
+    front_arm.run_angle(speed=1000,rotation_angle=120) #lower arm
     dB.turn(35)#turn
-
     dB.straight(700)
-
     dB.turn(55)#turn
-
-    dB.straight(220)
-
+    dB.straight(180)
     dB.straight(-40)
-
+    front_arm.run_angle(speed=1000,rotation_angle=200) #lower arm
+    dB.straight(-40)
     front_arm.run_angle(-80,-155)#reseting arm
-
     dB.straight(105)
-
     dB.turn(90)#turn
-
     dB.straight(180) 
-
     dB.turn(-105)#turn
-
-front_arm.run_angle(-80,-165)#reseting arm
-
+    front_arm.run_angle(-80,-165)#reseting arm
 
     front_arm.run_angle(-80,-180)#reseting arm
     #mission6 Markos here
