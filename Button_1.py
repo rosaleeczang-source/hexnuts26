@@ -115,13 +115,6 @@ def mission_3():
     return
 
 
-   
-mission_3()
-
-
-   
-mission_3()
-
 def run2():
     #run2
     #mission15 Eli here
@@ -158,18 +151,30 @@ def run2():
 
 #run3
 def run3():
-#mission7 Calvin
-
 #mission 13 Harvey
+#Taco
 #Left side of the bumper lined up with the second to last big black line farthest away from the edge of board.
 
-dB.straight(-609)
-dB.turn(45)
-dB.straight(-146)
-back_arm.run_angle(rotation_angle=130,speed=1000)
-dB.straight(254)
-dB.turn(-45)
-
+#back_arm.reset_angle(0)
+    dB.use_gyro(True)
+    back_arm.run_target(50,30)
+    dB.straight(-609)
+    dB.turn(45)
+    dB.straight(-146)
+    back_arm.run_angle(rotation_angle=130,speed=1000)
+    dB.straight(80)
+    ###Calvins code###(M12(cane ONLY))
+    dB.turn(45)
+    back_arm.run_until_stalled(700)
+    dB.straight(-101.6)
+    back_arm.run_angle(rotation_angle=-20,speed=80)
+    dB.turn(30)
+    dB.turn(-40)
+    dB.straight(40)
+    back_arm.run_target(500,30)
+    dB.turn(-80)
+    dB.straight(600)
+    dB.use_gyro(False)
     return
 
 
