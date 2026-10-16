@@ -87,6 +87,8 @@ def mission_11():
     dB.straight(22*25.4)
     dB.use_gyro(False)
 return
+
+
 #Mission 3, rosa here
 #using hexnut
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
@@ -106,11 +108,15 @@ def mission_3():
     front_arm.run_angle(600,260)
     dB.straight(140)
     front_arm.run_angle(-590,210)
-    dB.straight(-90)
+    dB.straight(-80)
     front_arm.run_angle(-200,40)
     dB.straight(-300)
     front_arm.run_angle(600,260)
     return
+
+
+   
+mission_3()
 
 
    
