@@ -115,26 +115,45 @@ def mission_3():
     return
 
 
-def run2():
-    #run2
-    #mission15 Eli here
+def run2():#mission15 Eli here
+#first black solid line in red cornor
+    dB.use_gyro(True)
     calibrate_arm_front_down()
     front_arm.run_angle(speed=1000,rotation_angle=120) #lower arm
     dB.turn(35)#turn
     dB.straight(700)
     dB.turn(55)#turn
-    dB.straight(180)
+    #PushRedsquare
+    dB.straight(144)
+    #backwards
     dB.straight(-40)
+    #raisearm
     front_arm.run_angle(speed=1000,rotation_angle=200) #lower arm
     dB.straight(-40)
-    front_arm.run_angle(-80,-155)#reseting arm
+    front_arm.run_angle(-80,-100)#reseting arm
     dB.straight(105)
-    dB.turn(90)#turn
-    dB.straight(180) 
-    dB.turn(-105)#turn
-    front_arm.run_angle(-80,-165)#reseting arm
-
-    front_arm.run_angle(-80,-180)#reseting arm
+    dB.turn(85)#turn
+    ##farther
+    dB.straight(480) 
+    #not hit green thing
+    dB.turn(-145)#turn
+    front_arm.run_angle(speed=200,rotation_angle=-400)#put arm down
+    dB.straight(5.80*25.4)
+    front_arm.run_angle(speed=30,rotation_angle=140)#reseting arm
+    #gently down
+    front_arm.run_angle(speed=30,rotation_angle=-140)
+    #composthatch
+    dB.turn(20)
+    #raisearm slightly
+    front_arm.run_angle(speed=500,rotation_angle=110)
+    dB.straight(3*25.4) 
+    dB.turn(-16)
+    front_arm.run_angle(speed=500,rotation_angle=-150)#reseting arm    
+    #turn away from compost
+    dB.turn(90)
+    #raise arm fully drive away from compost
+    front_arm.run_angle(speed=800,rotation_angle=300) #lower arm
+    dB.straight(3*25.4) 
     #mission6 Markos here
     calibrate_arm_front()
     dB.turn(110)
