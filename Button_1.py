@@ -44,6 +44,7 @@ def calibrate_arm_front_up():
 #Defining the missions
 #run1
 def run1():
+    return
 
 def mission_2():
     # Mission 2, Alex here
@@ -86,7 +87,7 @@ def mission_11():
     dB.turn(60)
     dB.straight(22*25.4)
     dB.use_gyro(False)
-return
+    return
 
 
 #Mission 3, rosa here
@@ -119,55 +120,51 @@ def run2():#mission15 Eli here
 #first black solid line in red cornor
     dB.use_gyro(True)
     calibrate_arm_front_down()
-    front_arm.run_angle(speed=1000,rotation_angle=120) #lower arm
+    front_arm.run_angle(speed=1000,rotation_angle=120) #raise arm
     dB.turn(35)#turn
     dB.straight(700)
     dB.turn(55)#turn
     #PushRedsquare
-    dB.straight(144)
+    dB.straight(150)
     #backwards
-    dB.straight(-40)
+    dB.straight(-60)
     #raisearm
-    front_arm.run_angle(speed=1000,rotation_angle=200) #lower arm
-    dB.straight(-40)
-    front_arm.run_angle(-80,-100)#reseting arm
+    front_arm.run_angle(speed=1000,rotation_angle=200) #raise arm
+    # going back 80 in line 130 dB.straight(-40)
+    # raise once in line 132 front_arm.run_angle(speed=1000,100)#reseting arm
     dB.straight(105)
-    dB.turn(85)#turn
+    dB.turn(90)#turn
     ##farther
-    dB.straight(480) 
+    dB.use_gyro(False)
+    dB.straight(540) 
+    dB.use_gyro(False)
+    dB.use_gyro(True)
+    dB.straight(-60)
     #not hit green thing
-    dB.turn(-145)#turn
-    front_arm.run_angle(speed=200,rotation_angle=-400)#put arm down
-    dB.straight(5.80*25.4)
-    front_arm.run_angle(speed=30,rotation_angle=140)#reseting arm
+    dB.turn(-147)#turn
+    front_arm.run_angle(speed=1000,rotation_angle=-225)#put arm down
+    dB.straight(6*25.4)
+    front_arm.run_angle(speed=30,rotation_angle=57)#reseting arm
+    wait(1000)
     #gently down
-    front_arm.run_angle(speed=30,rotation_angle=-140)
+    front_arm.run_angle(speed=30,rotation_angle=-57)
+    dB.straight(30)
+    front_arm.run_angle(speed=1000,rotation_angle=-50)
     #composthatch
-    dB.turn(20)
+    dB.turn(42)
     #raisearm slightly
-    front_arm.run_angle(speed=500,rotation_angle=110)
-    dB.straight(3*25.4) 
-    dB.turn(-16)
-    front_arm.run_angle(speed=500,rotation_angle=-150)#reseting arm    
-    #turn away from compost
-    dB.turn(90)
-    #raise arm fully drive away from compost
-    front_arm.run_angle(speed=800,rotation_angle=300) #lower arm
-    dB.straight(3*25.4) 
-    #mission6 Markos here
-    calibrate_arm_front()
-    dB.turn(110)
-    dB.straight(152.4)
-    front_arm.run_angle(-700,360)#lower arm
-
-    #mission 11 Addilynn here
-    #starts on rightside of Ant
-    dB.straight(-25)
-    dB.turn(85)
-    dB.straight(45)
-    dB.turn(-30)
+    front_arm.run_angle(speed=1000,rotation_angle=200,wait=False)
+    dB.straight(8.5*25.4) 
+    dB.turn(-60)
+    dB.straight(15*25.4)
+    dB.turn(30) # line up with leaf cutter
+    dB.straight(4.25*25.4)
+    dB.settings(straight_speed=100)
+    dB.straight(5*25.4)
+    dB.use_gyro(False)
+    dB.use_gyro(True)
     return
-
+   
 #run3
 def run3():
 #mission 13 Harvey
@@ -266,7 +263,7 @@ def select_number(active, options):
 hub.speaker.beep()
 active = 1
 options = [ 1, 2, 3, 4, 5, 6 ] # different code functions
-
+run2()
 while True:
   wait(100)
   hub.imu.reset_heading(0)
@@ -279,7 +276,7 @@ while True:
       calibrate_arm_right()
   
   elif active == 2:
-      m2()
+      run2()
       #m13()  
       dB.stop()
 
