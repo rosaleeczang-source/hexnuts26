@@ -113,10 +113,18 @@ def mission_3():
     front_arm.run_angle(-200,40)
     dB.straight(-300)
     front_arm.run_angle(600,260)
+
+    # Caleb's Mission
+    dB.turn(90)
+    dB.straight(533)
+    dB.straight(-533)
     return
 
 
-def run2():#mission15 Eli here
+
+
+
+def run3():#mission15 Eli here
 #first black solid line in red cornor
     dB.use_gyro(True)
     calibrate_arm_front_down()
@@ -165,8 +173,10 @@ def run2():#mission15 Eli here
     dB.use_gyro(True)
     return
    
-#run3
-def run3():
+
+
+#run4
+def run4():
 #mission 13 Harvey
 #Taco
 #Left side of the bumper lined up with the second to last big black line farthest away from the edge of board.
@@ -263,7 +273,7 @@ def select_number(active, options):
 hub.speaker.beep()
 active = 1
 options = [ 1, 2, 3, 4, 5, 6 ] # different code functions
-run2()
+#run2()
 while True:
   wait(100)
   hub.imu.reset_heading(0)
@@ -271,21 +281,23 @@ while True:
   print (active)
 #runs the functions based on the number ran from 
   if active == 1:
-      print ('calibrate')
-      calibrate_arm_left()
-      calibrate_arm_right()
+      mission_3()
+      dB.stop()
   
   elif active == 2:
-      run2()
-      #m13()  
+      mission_2() 
       dB.stop()
 
   elif active == 3:
-      m_one()  
+      # Eli and Markos
+      run3() 
+      # Addlynn
+      mission_11() 
       dB.stop()
       
   elif active == 4:
-      m11()
+      # Harvey and Calvin
+      run4()
       dB.stop()
   
   elif active == 5:
