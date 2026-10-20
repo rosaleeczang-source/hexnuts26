@@ -48,7 +48,8 @@ def run1():
 
 def mission_2():
     # Mission 2, Alex here
-    # red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
+    #alexes says red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
+
     dB.use_gyro(True)
     dB.turn(46)
     calibrate_arm_front_down()
@@ -79,8 +80,8 @@ def mission_6():
 #addilynns good code
 def mission_11():
     dB.use_gyro(True)
-    dB.straight(-100)
-    dB.turn(90)
+    dB.straight(-95)
+    dB.turn(85)
     dB.straight(8.5*25.4)
     dB.turn(-45)
     dB.straight(5*25.4)   
@@ -114,10 +115,15 @@ def mission_3():
     dB.straight(-300)
     front_arm.run_angle(600,260)
 
-    # Caleb's Mission
-    dB.turn(90)
+def mission_1():
+# Caleb's Mission
+#Booger, 
+    dB.settings(straight_speed=60)
     dB.straight(533)
-    dB.straight(-533)
+    wait(30)
+    dB.settings(straight_speed=500)
+    dB.straight(-553)
+    dB.settings(straight_speed=200)
     return
 
 
@@ -177,18 +183,18 @@ def run3():#mission15 Eli here
 
 #run4
 def run4():
-#mission 13 Harvey
-#Taco
-#Left side of the bumper lined up with the second to last big black line farthest away from the edge of board.
+    #mission 13 Harvey
+    #Taco
+    #Left side of the bumper lined up with the second to last big black line farthest away from the edge of board.
 
-#back_arm.reset_angle(0)
+    #back_arm.reset_angle(0)
     dB.use_gyro(True)
-    back_arm.run_target(50,30)
+    #back_arm.run_target(50,30)
     dB.straight(-609)
     dB.turn(45)
     dB.straight(-146)
     back_arm.run_angle(rotation_angle=130,speed=1000)
-    dB.straight(80)
+    dB.straight(90)
     ###Calvins code###(M12(cane ONLY))
     dB.turn(45)
     back_arm.run_until_stalled(700)
@@ -285,23 +291,23 @@ while True:
       dB.stop()
   
   elif active == 2:
-      mission_2() 
+      mission_1() 
       dB.stop()
 
   elif active == 3:
-      # Eli and Markos
-      run3() 
-      # Addlynn
-      mission_11() 
+      mission_2()
       dB.stop()
       
   elif active == 4:
-      # Harvey and Calvin
-      run4()
+      # Eli and Markos
+      run3()
+      # Addlynn
+      mission_11() 
       dB.stop()
   
   elif active == 5:
-      run2()
+      # Harvey and Calvin
+      run4()
       dB.stop()
   
   elif active == 6:
