@@ -86,6 +86,7 @@ def mission_11():
     dB.turn(-45)
     dB.straight(5*25.4)   
     dB.turn(60)
+    dB.settings(straight_acceleration=500, straight_speed=900)
     dB.straight(22*25.4)
     dB.use_gyro(False)
     return
@@ -287,6 +288,7 @@ active = 1
 options = [ 1, 2, 3, 4, 5, 6 ] # different code functions
 #run2()
 while True:
+
   wait(100)
   hub.imu.reset_heading(0)
   active = select_number(active, options)
@@ -320,7 +322,8 @@ while True:
       sixfive()
       dB.stop()
 
-  
+  dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
+  dB.use_gyro(False)
   #test if Nadya can commit to github
   #banana.  Eli
   #Rosa's test push
