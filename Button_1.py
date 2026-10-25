@@ -49,17 +49,17 @@ def run1():
 def mission_2():
     # Mission 2, Alex here
     #alexes says red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
-
+    dB.settings(straight_speed=200)
     dB.use_gyro(True)
     dB.turn(46)
     calibrate_arm_front_down()
     front_arm.run_angle(60, 80)   
-    dB.straight(380)
+    dB.straight(360)
     front_arm.run_angle(60, 44)
     dB.straight(-35)
     front_arm.run_angle(60, 44)
     dB.straight(25)
-    front_arm.run_angle(60, 74, wait=False)
+    front_arm.run_angle(100, 74, wait=False)
     dB.straight(-355)
     dB.turn(-46)
     dB.use_gyro(False)
@@ -118,12 +118,18 @@ def mission_3():
 def mission_1():
 # Caleb's Mission
 #Booger, 
-    dB.settings(straight_speed=60)
-    dB.straight(533)
-    wait(30)
-    dB.settings(straight_speed=500)
-    dB.straight(-553)
+    dB.use_gyro(True)
+    calibrate_arm_front_down()
+    front_arm.run_angle(speed=1000,rotation_angle=100) #raise arm
     dB.settings(straight_speed=200)
+    dB.straight(12.75*25.4)
+    front_arm.run_angle(speed=1000,rotation_angle=-40) #lower arm
+    
+    dB.settings(straight_speed=200)
+    dB.straight(11*25.4)
+    dB.settings(straight_speed=900)
+    dB.straight(-24*25.4)
+    dB.settings(straight_speed=500)
     return
 
 
