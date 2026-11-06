@@ -100,6 +100,7 @@ def mission_11():
     return
 
 
+
 #Mission 3, rosa here
 #using hexnut
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
@@ -205,11 +206,13 @@ def run4():
     #back_arm.reset_angle(0)
     dB.use_gyro(True)
     #back_arm.run_target(50,30)
-    dB.straight(-609)
-    dB.turn(45)
-    dB.straight(-146)
-    back_arm.run_angle(rotation_angle=130,speed=1000)
-    dB.straight(90)
+    dB.straight(-609)# drive out of the home base
+    dB.turn(45)#Turn to right to face the mission
+    dB.straight(-146)#drive to the mission
+    back_arm.run_angle(rotation_angle=130,speed=1000)#drop the arm to hit the mission
+    dB.straight(90)#drive away from the mission
+
+
     ###Calvins code###(M12(cane ONLY))
     dB.turn(45)
     back_arm.run_until_stalled(700)
