@@ -21,6 +21,8 @@ dB.use_gyro(False)
 hub.imu.reset_heading(0)
 dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
 
+hub.light.on(Color.RED * 5000)
+
 def calibrate_arm_back_up():
     back_arm.run_until_stalled(700,then=Stop.COAST,duty_limit=35)
     # turn arm back up N degrees
@@ -49,16 +51,22 @@ def run1():
 def mission_2():
     # Mission 2, Alex here
     #alexes says red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
-    dB.settings(straight_speed=200)
+    dB.settings(straight_speed=400)
     dB.use_gyro(True)
-    dB.turn(46)
+    dB.turn(46) # turning to face mission
     calibrate_arm_front_down()
-    front_arm.run_angle(60, 80)   
-    dB.straight(360)
-    front_arm.run_angle(60, 44)
-    dB.straight(-35)
-    front_arm.run_angle(60, 44)
-    dB.straight(25)
+    front_arm.run_angle(400, 80) # set initial arm position  
+    dB.straight(385) # drive to mission
+    front_arm.run_angle(400, 70) # lift seed pod
+    dB.straight(-65) # pull 1st seed out
+    dB.turn(-5)# was offset to the right (gyro?)
+    dB.straight(35) # move under all seeds
+    front_arm.run_angle(400, 20)# lift seeds]
+    dB.settings(straight_speed=900)# sets to super speed
+    dB.settings(turn_rate=500)
+    dB.straight(-375)# back to home + pull off seeds
+    dB.turn(-46) # get arm in home
+    return
     front_arm.run_angle(100, 74, wait=False)
     dB.straight(-355)
     dB.turn(-46)
@@ -261,12 +269,23 @@ def select_number(active, options):
 
         if Button.LEFT in pressed:# makes the left button make the number the code is running lower
             index = (index - 1) % total
+            if index == 4:
+                hub.light.on(Color.BLUE * 5000)
+            if index == 3:
+                hub.light.on(Color.RED * 5000)
+            if index == 5:
+                hub.light.on(Color.BLACK * 5000)
             show()
             hub.speaker.beep()
             wait(300)  # debounce
 
         elif Button.RIGHT in pressed: #makes the right button increase the number the code is running
             index = (index + 1) % total
+            hub.light.on(Color.RED * 5000)
+            if index == 4:
+                hub.light.on(Color.BLUE * 5000)
+            if index == 5:
+                hub.light.on(Color.BLACK * 5000)
             show()
             hub.speaker.beep()
             wait(300)  # debounce
@@ -319,9 +338,9 @@ while True:
       dB.stop()
   
   elif active == 6:
-      sixfive()
+      #sixfive()
       dB.stop()
-
+  active += 1
   dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
   dB.use_gyro(False)
   #test if Nadya can commit to github
