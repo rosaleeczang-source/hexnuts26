@@ -21,7 +21,9 @@ dB.use_gyro(False)
 hub.imu.reset_heading(0)
 dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
 
+#starting display setings
 hub.light.on(Color.RED * 5000)
+hub.display.orientation(Side.BOTTOM)
 
 def calibrate_arm_back_up():
     back_arm.run_until_stalled(700,then=Stop.COAST,duty_limit=35)
@@ -272,10 +274,13 @@ def select_number(active, options):
 
         if Button.LEFT in pressed:# makes the left button make the number the code is running lower
             index = (index - 1) % total
+            hub.display.orientation(Side.BOTTOM)
             if index == 4:
                 hub.light.on(Color.BLUE * 5000)
+                hub.display.orientation(Side.TOP)
             if index == 3:
                 hub.light.on(Color.RED * 5000)
+                hub.display.orientation(Side.BOTTOM)
             if index == 5:
                 hub.light.on(Color.BLACK * 5000)
             show()
@@ -285,8 +290,10 @@ def select_number(active, options):
         elif Button.RIGHT in pressed: #makes the right button increase the number the code is running
             index = (index + 1) % total
             hub.light.on(Color.RED * 5000)
+            hub.display.orientation(Side.BOTTOM)
             if index == 4:
                 hub.light.on(Color.BLUE * 5000)
+                hub.display.orientation(Side.TOP)
             if index == 5:
                 hub.light.on(Color.BLACK * 5000)
             show()
@@ -344,6 +351,9 @@ while True:
       #sixfive()
       dB.stop()
   active += 1
+  if active == 5:
+    hub.light.on(Color.BLUE * 5000)
+    hub.display.orientation(Side.TOP)
   dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
   dB.use_gyro(False)
   #test if Nadya can commit to github
