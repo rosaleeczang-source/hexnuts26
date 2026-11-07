@@ -283,7 +283,7 @@ def select_number(active, options):
 
     while True:
         pressed = hub.buttons.pressed()
-
+        
         if Button.LEFT in pressed:# makes the left button make the number the code is running lower
             index = (index - 1) % total
             hub.display.orientation(Side.BOTTOM)
@@ -294,7 +294,7 @@ def select_number(active, options):
                 hub.light.on(Color.RED * 5000)
                 hub.display.orientation(Side.BOTTOM)
             if index == 5:
-                hub.light.on(Color.BLACK * 5000)
+                hub.light.on(Color.ORANGE * 5000)
             show()
             hub.speaker.beep()
             wait(300)  # debounce
@@ -307,7 +307,7 @@ def select_number(active, options):
                 hub.light.on(Color.BLUE * 5000)
                 hub.display.orientation(Side.TOP)
             if index == 5:
-                hub.light.on(Color.BLACK * 5000)
+                hub.light.on(Color.ORANGE * 5000)
             show()
             hub.speaker.beep()
             wait(300)  # debounce
@@ -336,18 +336,22 @@ while True:
   print (active)
 #runs the functions based on the number ran from 
   if active == 1:
+      hub.light.on(Color.GREEN * 5000)
       mission_3()
       dB.stop()
   
   elif active == 2:
+      hub.light.on(Color.GREEN * 5000)
       mission_1() 
       dB.stop()
 
   elif active == 3:
+      hub.light.on(Color.GREEN * 5000)
       mission_2()
       dB.stop()
       
   elif active == 4:
+      hub.light.on(Color.GREEN * 5000)
       # Eli and Markos
       run3()
       # Addlynn
@@ -356,17 +360,38 @@ while True:
   
   elif active == 5:
       # Harvey and Calvin
+      hub.light.on(Color.GREEN * 5000)
       run4()
       dB.stop()
   
   elif active == 6:
-      #sixfive()
+      hub.light.on(Color.GREEN * 5000)
       run6()
       dB.stop()
+  
+  
   active += 1
+
+
+  if active == 6:
+      hub.light.on(Color.ORANGE * 5000)
+      hub.display.orientation(Side.TOP)
   if active == 5:
-    hub.light.on(Color.BLUE * 5000)
-    hub.display.orientation(Side.TOP)
+      hub.light.on(Color.BLUE * 5000)
+      hub.display.orientation(Side.TOP)
+  if active == 4:
+      hub.light.on(Color.RED * 5000)
+      hub.display.orientation(Side.BOTTOM)
+  if active == 3:
+      hub.light.on(Color.RED * 5000)
+      hub.display.orientation(Side.BOTTOM)
+  if active == 2:
+      hub.light.on(Color.RED * 5000)
+      hub.display.orientation(Side.BOTTOM)
+  if active == 1:
+      hub.light.on(Color.RED * 5000)
+      hub.display.orientation(Side.BOTTOM)
+
   dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
   dB.use_gyro(False)
   #test if Nadya can commit to github
