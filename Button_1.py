@@ -229,6 +229,18 @@ def run4():
     dB.use_gyro(False)
     return
 
+def run6():
+    hub.imu.reset_heading(0)
+    calibrate_arm_back_up() # calibrate arm
+    back_arm.run_angle(rotation_angle=-19,speed=200) #position arm
+    dB.turn(-4)# point at fungus
+    dB.straight(-640) #drive to mission 7
+    back_arm.run_angle(speed=600,rotation_angle=-55)#flip the fungus
+    dB.turn(-20)#aim for home
+    dB.settings(straight_speed=900,straight_acceleration=400) # go fast
+    dB.straight(26*25.4)# go home
+    back_arm.run_angle(speed=600, rotation_angle=-80) # return arm
+    return
 
 ###Button Functions###
 def pause(message=''):
@@ -349,6 +361,7 @@ while True:
   
   elif active == 6:
       #sixfive()
+      run6()
       dB.stop()
   active += 1
   if active == 5:
