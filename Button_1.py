@@ -58,7 +58,7 @@ def mission_2():
     dB.turn(46) # turning to face mission
     calibrate_arm_front_down()
     front_arm.run_angle(400, 80) # set initial arm position  
-    dB.straight(385) # drive to mission
+    dB.straight(375) # drive to mission
     front_arm.run_angle(400, 70) # lift seed pod
     dB.straight(-65) # pull 1st seed out
     dB.turn(-5)# was offset to the right (gyro?)
@@ -68,10 +68,6 @@ def mission_2():
     dB.settings(turn_rate=500)
     dB.straight(-375)# back to home + pull off seeds
     dB.turn(-46) # get arm in home
-    return
-    front_arm.run_angle(100, 74, wait=False)
-    dB.straight(-355)
-    dB.turn(-46)
     dB.use_gyro(False)
     return
 
@@ -152,7 +148,7 @@ def run3():#mission15 Eli here
 #first black solid line in red cornor
     dB.use_gyro(True)
     calibrate_arm_front_down()
-    front_arm.run_angle(speed=1000,rotation_angle=120) #raise arm
+    front_arm.run_angle(speed=1000,rotation_angle=125) #raise arm 120
     dB.turn(35)#turn
     dB.straight(700)
     dB.turn(55)#turn
@@ -220,12 +216,13 @@ def run4():
     back_arm.run_until_stalled(700)
     dB.straight(-101.6)
     back_arm.run_angle(rotation_angle=-20,speed=80)
-    dB.turn(30)
-    dB.turn(-40)
-    dB.straight(40)
-    back_arm.run_target(500,30)
-    dB.turn(-80)
-    dB.straight(600)
+    dB.turn(20)
+    dB.turn(-30)
+    dB.settings(straight_acceleration=700,straight_speed=800)
+    dB.straight(165)
+    dB.turn(80)
+    back_arm.run_target(500,30,wait=False)
+    dB.straight(-775)
     dB.use_gyro(False)
     return
 
@@ -391,8 +388,8 @@ while True:
   if active == 1:
       hub.light.on(Color.RED * 5000)
       hub.display.orientation(Side.BOTTOM)
-
-  dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
+  dB.settings(straight_speed=300,straight_acceleration=550,turn_acceleration=70,turn_rate=350)
+  #dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
   dB.use_gyro(False)
   #test if Nadya can commit to github
   #banana.  Eli
