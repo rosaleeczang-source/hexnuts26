@@ -119,7 +119,7 @@ def mission_3():
     dB.straight(140)
     front_arm.run_angle(-590,210)
     dB.straight(-80)
-    front_arm.run_angle(-200,40)
+    front_arm.run_angle(-200,60) #40
     dB.straight(-300)
     front_arm.run_angle(600,260)
 
