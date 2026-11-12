@@ -3,7 +3,7 @@ from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
 from pybricks.robotics import DriveBase
-from pybricks.tools import wait, StopWatch
+from pybricks.tools import wait, StopWatch, multitask, run_task
 #defines the variables
 
 
@@ -60,14 +60,14 @@ def mission_2():
     front_arm.run_angle(400, 80) # set initial arm position  
     dB.straight(375) # drive to mission
     front_arm.run_angle(400, 70) # lift seed pod
-    dB.straight(-65) # pull 1st seed out
+    dB.straight(-45) # pull 1st seed out
     front_arm.run_angle(400, 20)# lift seeds]
-    dB.straight(35) # move under all seeds
-    front_arm.run_angle(400, 40)# lift seeds]
-    dB.settings(straight_speed=900)# sets to super speed
+    dB.straight(40) # move under all seeds
+    front_arm.run_angle(400, 25)# lift seeds]
+    dB.settings(straight_speed=400)# sets to super speed
     dB.settings(turn_rate=500)
     dB.straight(-375)# back to home + pull off seeds
-    dB.turn(-46) # get arm in home
+    #dB.turn(-46) # get arm in home
     dB.use_gyro(False)
     return
 
@@ -93,12 +93,18 @@ def mission_11():
     dB.turn(-45)
     dB.straight(5*25.4)   
     dB.turn(60)
-    dB.settings(straight_acceleration=500, straight_speed=900)
-    dB.straight(22*25.4)
+    dB.straight(22*25.4,wait=False)
+    test()
     dB.use_gyro(False)
+    front_arm.stop()
+    #back_arm.turn()
     return
 
-
+def test():
+    wait(750)
+    calibrate_arm_back_up()
+    back_arm.run_angle(speed=700,rotation_angle=-170,then=Stop.HOLD)
+    front_arm.run_angle(speed=800,rotation_angle=70)
 
 #Mission 3, rosa here
 #using hexnut
@@ -147,6 +153,7 @@ def mission_1():
 
 def run3():#mission15 Eli here
 #first black solid line in red cornor
+    dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
     dB.use_gyro(True)
     calibrate_arm_front_down()
     front_arm.run_angle(speed=1000,rotation_angle=125) #raise arm 120
@@ -174,7 +181,7 @@ def run3():#mission15 Eli here
     front_arm.run_angle(speed=1000,rotation_angle=-225)#put arm down
     dB.straight(6*25.4)
     front_arm.run_angle(speed=30,rotation_angle=57)#reseting arm
-    wait(1000)
+    wait(500)
     #gently down
     front_arm.run_angle(speed=30,rotation_angle=-57)
     dB.straight(30)
@@ -364,7 +371,8 @@ while True:
   
   elif active == 6:
       hub.light.on(Color.GREEN * 5000)
-      run6()
+      test()
+      #run6()
       dB.stop()
   
   
