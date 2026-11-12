@@ -55,15 +55,15 @@ def mission_2():
     #alexes says red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
     dB.settings(straight_speed=400)
     dB.use_gyro(True)
-    dB.turn(46) # turning to face mission
+    dB.turn(44) # turning to face mission
     calibrate_arm_front_down()
     front_arm.run_angle(400, 80) # set initial arm position  
     dB.straight(375) # drive to mission
     front_arm.run_angle(400, 70) # lift seed pod
     dB.straight(-65) # pull 1st seed out
-    dB.turn(-5)# was offset to the right (gyro?)
-    dB.straight(35) # move under all seeds
     front_arm.run_angle(400, 20)# lift seeds]
+    dB.straight(35) # move under all seeds
+    front_arm.run_angle(400, 40)# lift seeds]
     dB.settings(straight_speed=900)# sets to super speed
     dB.settings(turn_rate=500)
     dB.straight(-375)# back to home + pull off seeds
@@ -85,6 +85,7 @@ def mission_6():
     return
 #addilynns good code
 def mission_11():
+    dB.settings(straight_speed=300,straight_acceleration=550,turn_acceleration=70,turn_rate=350)
     dB.use_gyro(True)
     dB.straight(-95)
     dB.turn(85)
