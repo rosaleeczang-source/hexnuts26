@@ -371,8 +371,7 @@ while True:
   
   elif active == 6:
       hub.light.on(Color.GREEN * 5000)
-      test()
-      #run6()
+      run6()
       dB.stop()
   
   
