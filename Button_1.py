@@ -25,8 +25,23 @@ dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate
 hub.light.on(Color.RED * 5000)
 hub.display.orientation(Side.BOTTOM)
 
+async def main_calibrate_f():
+  await front_arm.run_until_stalled(-300,then=Stop.COAST,duty_limit=35)
+  front_arm.reset_angle(0)
+
+async def main_calibrate_b():
+  await back_arm.run_until_stalled(200,then=Stop.COAST,duty_limit=40)
+  back_arm.reset_angle(0)
+
+async def main_calibrate():
+    await multitask(
+        main_calibrate_b(),
+        main_calibrate_f(),
+    )
+    print("calibrated")
+
 def calibrate_arm_back_up():
-    back_arm.run_until_stalled(700,then=Stop.COAST,duty_limit=35)
+    back_arm.run_until_stalled(7000,then=Stop.COAST,duty_limit=40)
     # turn arm back up N degrees
     #back_arm.run_angle(700,360)
     return
@@ -100,6 +115,12 @@ def mission_11():
     #back_arm.turn()
     return
 
+def run7():
+    #line up bumper 2 thike line but 1 line towords forest elder
+    dB.settings(straight_speed=900,straight_acceleration=900,turn_acceleration=100,turn_rate=100)
+    dB.straight(-1700)
+
+
 def test():
     wait(750)
     calibrate_arm_back_up()
@@ -110,9 +131,8 @@ def test():
 #using hexnut
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
 def mission_3():
-    calibrate_arm_front_down()
 #using long wings on the front arm to hit my mission :)
-    front_arm.run_angle(600,307)
+    front_arm.run_target(300,305)
     dB.settings(straight_speed=200)
     #raise arm 345
     dB.straight(130)
@@ -211,7 +231,7 @@ def run4():
 
     #back_arm.reset_angle(0)
     dB.use_gyro(True)
-    #back_arm.run_target(50,30)
+    back_arm.run_target(50,-185)
     dB.straight(-609)# drive out of the home base
     dB.turn(45)#Turn to right to face the mission
     dB.straight(-146)#drive to the mission
@@ -328,10 +348,13 @@ def select_number(active, options):
 
         wait(50)
 
-
+run_task(main_calibrate())
+back_arm.run_target(300,-160)
+front_arm.run_target(300,405)
+dB.stop()
 hub.speaker.beep()
 active = 1
-options = [ 1, 2, 3, 4, 5, 6 ] # different code functions
+options = [ 1, 2, 3, 4, 5, 6, 7 ] # different code functions
 #run2()
 while True:
 
@@ -374,6 +397,11 @@ while True:
       run6()
       dB.stop()
   
+  elif active == 7:
+      hub.light.on(Color.GREEN * 5000)
+      run7()
+      dB.stop()
+  
   
   active += 1
 
@@ -381,21 +409,27 @@ while True:
   if active == 6:
       hub.light.on(Color.ORANGE * 5000)
       hub.display.orientation(Side.TOP)
+      dB.stop()
   if active == 5:
       hub.light.on(Color.BLUE * 5000)
       hub.display.orientation(Side.TOP)
+      dB.stop()
   if active == 4:
       hub.light.on(Color.RED * 5000)
       hub.display.orientation(Side.BOTTOM)
+      dB.stop()
   if active == 3:
       hub.light.on(Color.RED * 5000)
       hub.display.orientation(Side.BOTTOM)
+      dB.stop()
   if active == 2:
       hub.light.on(Color.RED * 5000)
       hub.display.orientation(Side.BOTTOM)
+      dB.stop()
   if active == 1:
       hub.light.on(Color.RED * 5000)
       hub.display.orientation(Side.BOTTOM)
+      dB.stop()
   dB.settings(straight_speed=300,straight_acceleration=550,turn_acceleration=70,turn_rate=350)
   #dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
   dB.use_gyro(False)
