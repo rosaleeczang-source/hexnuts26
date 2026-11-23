@@ -175,26 +175,19 @@ def run3():#mission15 Eli here
 #first black solid line in red cornor
     dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
     dB.use_gyro(True)
-    calibrate_arm_front_down()
-    front_arm.run_angle(speed=1000,rotation_angle=125) #raise arm 120
+    #calibrate_arm_front_down()
+    #front_arm.run_angle(speed=1000,rotation_angle=125) #raise arm 120
     dB.turn(35)#turn
     dB.straight(700)
-    dB.turn(55)#turn
+    #truns robot to use back side to push red skylight
+    dB.turn(-120)
     #PushRedsquare
-    dB.straight(150)
+    dB.straight(-300)
     #backwards
-    dB.straight(-60)
-    #raisearm
-    front_arm.run_angle(speed=1000,rotation_angle=200) #raise arm
-    # going back 80 in line 130 dB.straight(-40)
-    # raise once in line 132 front_arm.run_angle(speed=1000,100)#reseting arm
-    dB.straight(105)
-    dB.turn(90)#turn
-    ##farther
-    dB.use_gyro(False)
-    dB.straight(540) 
-    dB.use_gyro(False)
-    dB.use_gyro(True)
+    dB.straight(90)
+    # goes forward 
+    dB.turn(-90)
+    #turn
     dB.straight(-60)
     #not hit green thing
     dB.turn(-147)#turn
@@ -219,8 +212,7 @@ def run3():#mission15 Eli here
     dB.straight(5*25.4)
     dB.use_gyro(False)
     dB.use_gyro(True)
-    return
-   
+    return   
 
 
 #run4
