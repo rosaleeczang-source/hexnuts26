@@ -74,21 +74,21 @@ def run1():
 def mission_2():
     # Mission 2, Alex here
     #alexes says red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
-    dB.settings(900,900,200,250) #speed, str accel, turn , turn accel
-    dB.settings()
+    dB.settings(straight_speed=900,straight_acceleration=900,turn_rate=500,turn_acceleration=400) #speed, str accel, turn , turn accel
+    #dB.settings(900,900,200,250)
     dB.use_gyro(True)
     dB.turn(44) # turning to face mission
     #calibrate_arm_front_down()
-    front_arm.run_target(400, 100, wait=False) # set initial arm position 
-    front_arm.run_target(400, 107,wait=False)
-    wait(0.1)
+    front_arm.run_target(400, 75, wait=False) # set initial arm position 
+    #front_arm.run_target(400, 107,wait=False)
+    #wait(0.1)
     #print('1',front_arm.angle()) 
     dB.straight(375,wait=True) # drive to mission
     
     
     #front_arm.run_angle(400, 70) # lift seed pod
     print('2',front_arm.angle()) 
-    front_arm.run_target(400, 144)
+    front_arm.run_target(400, 150) #144
     dB.straight(-50) # pull 1st seed out
     #front_arm.run_angle(400, 20)# lift seeds]
     print('3',front_arm.angle()) 
@@ -99,8 +99,10 @@ def mission_2():
     front_arm.run_target(400, 188)
     dB.settings(straight_speed=400)# sets to super speed
     dB.settings(turn_rate=500)
-    dB.straight(-375)# back to home + pull off seeds
-    #dB.turn(-46) # get arm in home
+    dB.straight(-390)# back to home + pull off seeds -375,-360
+    dB.turn(-46) # get funal in home
+    #dB.straight(-15)
+    #dB.stop()
     dB.use_gyro(False)
     return
 
@@ -150,7 +152,7 @@ def test():
 #Red base, grey arm bracket lines up with sixth square, back lines up with corner block
 def mission_3():
 #using long wings on the front arm to hit my mission :)
-    front_arm.run_target(300,305)
+    front_arm.run_target(300,305)#speed , angle
     dB.settings(straight_speed=200)
     #raise arm 345
     dB.straight(130)
@@ -191,24 +193,51 @@ def mission_1():
 
 def run3():#mission15 Eli here
 #first black solid line in red cornor
-    dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate  
+    dB.settings(500,550,250,350) #maxspeed, stspeed, accel, turn rate #200,550,50,150 
     dB.use_gyro(True)
+    front_arm.run_target(500,401)#speed ,angle
     #calibrate_arm_front_down()
     #front_arm.run_angle(speed=1000,rotation_angle=125) #raise arm 120
     dB.turn(35)#turn
-    dB.straight(700)
-    #truns robot to use back side to push red skylight
+    dB.straight(700)#truns robot to use back side to push red skylight
     dB.turn(-120)
     #PushRedsquare
-    dB.straight(-300)
+    dB.straight(-350)
+    dB.reset()
     #backwards
     dB.straight(90)
     # goes forward 
-    dB.turn(-90)
+    dB.turn(-100)#-90
     #turn
-    dB.straight(-60)
+    ##dB.straight(-60)
     #not hit green thing
-    dB.turn(-147)#turn
+    ##dB.turn(-147)#turn
+    dB.straight(250)
+    front_arm.run_target(500,100)
+    dB.settings(200,550,50,150)
+    dB.turn(-125)
+    front_arm.run_target(20,160)
+    wait(10)
+    front_arm.run_target(20,120)
+    wait(3)
+
+    dB.settings(500,550,250,350)
+    
+
+    dB.turn(5)
+    front_arm.run_target(100,100)
+    dB.straight(15)
+    front_arm.run_target(100,42)
+    wait(1)
+    dB.turn(30)
+    dB.straight(200)
+    dB.turn(-40)
+    dB.straight(300)
+    dB.settings(200,550,50,150)
+    dB.turn(-15)
+    dB.settings(straight_acceleration=300, turn_acceleration=300)
+    dB.straight(250)
+    return
     front_arm.run_angle(speed=1000,rotation_angle=-225)#put arm down
     dB.straight(6*25.4)
     front_arm.run_angle(speed=30,rotation_angle=57)#reseting arm
@@ -394,7 +423,7 @@ while True:
       # Eli and Markos
       run3()
       # Addlynn
-      mission_11() 
+      #mission_11() 
       dB.stop()
   
   elif active == 5:
