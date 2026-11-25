@@ -25,6 +25,12 @@ dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate
 hub.light.on(Color.RED * 5000)
 hub.display.orientation(Side.BOTTOM)
 
+def lonch_start():
+    while not dB.stalled():
+        dB.straight(-10)
+    dB.reset()
+    return
+
 async def main_calibrate_f():
   await front_arm.run_until_stalled(-300,then=Stop.COAST,duty_limit=35)
   front_arm.reset_angle(0)
@@ -68,17 +74,29 @@ def run1():
 def mission_2():
     # Mission 2, Alex here
     #alexes says red home, the protruding left beam lined up 6 blocks from the bottom, 8 blocks from the corner on the x axis
-    dB.settings(straight_speed=400)
+    dB.settings(900,900,200,250) #speed, str accel, turn , turn accel
+    dB.settings()
     dB.use_gyro(True)
     dB.turn(44) # turning to face mission
-    calibrate_arm_front_down()
-    front_arm.run_angle(400, 80) # set initial arm position  
-    dB.straight(375) # drive to mission
-    front_arm.run_angle(400, 70) # lift seed pod
-    dB.straight(-45) # pull 1st seed out
-    front_arm.run_angle(400, 20)# lift seeds]
+    #calibrate_arm_front_down()
+    front_arm.run_target(400, 100, wait=False) # set initial arm position 
+    front_arm.run_target(400, 107,wait=False)
+    wait(0.1)
+    #print('1',front_arm.angle()) 
+    dB.straight(375,wait=True) # drive to mission
+    
+    
+    #front_arm.run_angle(400, 70) # lift seed pod
+    print('2',front_arm.angle()) 
+    front_arm.run_target(400, 144)
+    dB.straight(-50) # pull 1st seed out
+    #front_arm.run_angle(400, 20)# lift seeds]
+    print('3',front_arm.angle()) 
+    front_arm.run_target(400, 165)
     dB.straight(40) # move under all seeds
-    front_arm.run_angle(400, 25)# lift seeds]
+    #front_arm.run_angle(400, 25)# lift seeds]
+    print('4',front_arm.angle()) 
+    front_arm.run_target(400, 188)
     dB.settings(straight_speed=400)# sets to super speed
     dB.settings(turn_rate=500)
     dB.straight(-375)# back to home + pull off seeds
@@ -349,7 +367,8 @@ active = 1
 options = [ 1, 2, 3, 4, 5, 6, 7 ] # different code functions
 #run2()
 while True:
-
+  front_arm.stop()
+  back_arm.stop()
   wait(100)
   hub.imu.reset_heading(0)
   active = select_number(active, options)
