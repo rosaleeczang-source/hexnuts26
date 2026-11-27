@@ -25,9 +25,8 @@ dB.settings(200,550,50,150) #maxspeed, stspeed, accel, turn rate
 hub.light.on(Color.RED * 5000)
 hub.display.orientation(Side.BOTTOM)
 
-def lonch_start():
-    while not dB.stalled():
-        dB.straight(-10)
+def launch_start(distence):
+    dB.straight(-distence)
     dB.reset()
     return
 
@@ -174,14 +173,15 @@ def mission_1():
 # Caleb's Mission
 #Booger, 
     dB.use_gyro(True)
-    calibrate_arm_front_down()
-    front_arm.run_angle(speed=1000,rotation_angle=100) #raise arm
-    dB.settings(straight_speed=200)
-    dB.straight(12.75*25.4)
-    front_arm.run_angle(speed=1000,rotation_angle=-40) #lower arm
+    #calibrate_arm_front_down()
+    #front_arm.run_angle(speed=1000,rotation_angle=100) #raise arm
+    ##dB.settings(straight_speed=200)
+    ##dB.straight(12.75*25.4)
+    #front_arm.run_angle(speed=1000,rotation_angle=-40) #lower arm
     
-    dB.settings(straight_speed=200)
-    dB.straight(11*25.4)
+    dB.settings(straight_speed=900)
+    ##dB.straight(11*25.4)
+    dB.straight(603.25)
     dB.settings(straight_speed=900)
     dB.straight(-24*25.4)
     dB.settings(straight_speed=500)
@@ -193,21 +193,23 @@ def mission_1():
 
 def run3():#mission15 Eli here
 #first black solid line in red cornor
+    launch_start(0)
     dB.settings(500,550,250,350) #maxspeed, stspeed, accel, turn rate #200,550,50,150 
     dB.use_gyro(True)
-    front_arm.run_target(500,401)#speed ,angle
-    #calibrate_arm_front_down()
-    #front_arm.run_angle(speed=1000,rotation_angle=125) #raise arm 120
+    front_arm.run_target(500,401)#speed ,angle #set arm position
+    
+    
     dB.turn(35)#turn
-    dB.straight(700)#truns robot to use back side to push red skylight
-    dB.turn(-120)
-    #PushRedsquare
-    dB.straight(-350)
+    dB.straight(-700)#move forword
+    dB.turn(73)#turn to red square
+    
+    dB.settings(200,550,50,150)
+    dB.straight(-370)#PushRedsquare
+    dB.straight(-30)#agen just in case
+    dB.settings(500,550,250,350)
     dB.reset()
-    #backwards
-    dB.straight(90)
-    # goes forward 
-    dB.turn(-100)#-90
+    dB.straight(90)#away from red square
+    dB.turn(-100)
     #turn
     ##dB.straight(-60)
     #not hit green thing
@@ -220,23 +222,42 @@ def run3():#mission15 Eli here
     wait(10)
     front_arm.run_target(20,120)
     wait(3)
-
+    
     dB.settings(500,550,250,350)
     
 
-    dB.turn(5)
+    dB.turn(3)
     front_arm.run_target(100,100)
     dB.straight(15)
     front_arm.run_target(100,42)
     wait(1)
+    
+    dB.straight(-25)
     dB.turn(30)
-    dB.straight(200)
+    front_arm.run_target(500,401)
+    dB.straight(130)#180
+    #dB.turn(-30)
+    #dB.straight(430)
+    return
+    front_arm.run_target(500,401,wait=False)
+    
+    dB.settings(100,250,50,150)
+    return
+    dB.turn(-10)
+    dB.straight(250)
+    return
+    dB.settings(500,550,250,350)
+    dB.straight(-100)
+    dB.turn(90)
+    dB.straight(400)
+    return###
     dB.turn(-40)
     dB.straight(300)
-    dB.settings(200,550,50,150)
-    dB.turn(-15)
-    dB.settings(straight_acceleration=300, turn_acceleration=300)
-    dB.straight(250)
+    
+    
+    
+    ##dB.settings(straight_acceleration=300, turn_acceleration=300)
+    dB.straight(280)
     return
     front_arm.run_angle(speed=1000,rotation_angle=-225)#put arm down
     dB.straight(6*25.4)
